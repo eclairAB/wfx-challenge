@@ -21,6 +21,7 @@
 
             get_header();
             require 'sections/homepage/slider.php';
+            require 'sections/homepage/upper-content/index.php';
             // the_content();
 
 

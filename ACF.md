@@ -44,7 +44,6 @@
     - heading
     - section_content
     - link
-    - background_image
   - right-side_mini_gallery
 
     - heading_emphasis
@@ -52,11 +51,11 @@
     - section_content
     - link
     - mini_gallery
+
       - thumbnail
       - caption
       - expanding_overlay_icon
       - link
-    - background_image
   - side-by-side_images
 
     - heading_emphasis
