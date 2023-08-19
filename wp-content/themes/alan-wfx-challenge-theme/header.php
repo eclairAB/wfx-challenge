@@ -10,50 +10,151 @@
  */
 
 ?>
-<!doctype html>
-<html <?php language_attributes(); ?>>
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	<?php wp_head(); ?>
-</head>
+<div class="covid-message">
+    <div class="container">
+        <div class="covid-text">
+            <?php echo get_field('homepage_suspendable_nav_banner_text'); ?>
+        </div>
+        <div class="covid-link">
+            <a class="learn-more" href="<?php echo get_field('homepage_suspendable_nav_link')['url']; ?>">
+                <?php echo get_field('homepage_suspendable_nav_link')['title']; ?>
+                <span class="icon-arrow-right"></span>
+            </a>
+        </div>
+        <a href="javascript:void(0);" class="icon-close removeit"></a>
+    </div>
+</div>
+<header class="header">
+    <div class="container">
+        <div class="header-wrap">
+            <div class="header-logo">
+                <a href="#">
+                    <img src="<?php echo get_field('homepage_sticky_nav_site_logo'); ?>" alt="University Animal Clinic" />
+                </a>
+            </div>
+            <div class="header-right">
+                <div class="header-content">
+                    <div class="call-us">
+                        <span>
+                            <?php echo get_field('homepage_sticky_nav_tel_number_subheading'); ?>
+                        </span>
+                        <a href="tel:<?php echo get_field('homepage_sticky_nav_tel_number'); ?>">
+                            <?php echo get_field('homepage_sticky_nav_tel_number'); ?>
+                        </a>
+                    </div>
+                    <div class="online-request">
+                        <a href="#" class="btn btn-secondary">Online Pharmacy</a>
+                        <a href="#" class="btn btn-primary">Request an Appointment</a>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                            <span class="menu-text">Menu</span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
 
-<body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'alan-wfx-challenge-theme' ); ?></a>
+                            <?php
+                                # LEVEL 1 LOOP
+                                if( have_rows('homepage_sticky_nav_menu_items') ):
+                                    while ( have_rows('homepage_sticky_nav_menu_items') ) : the_row();
+                                        if( get_row_layout() == 'direct_link' ):
+                                            $link1 = get_sub_field('link'); ?>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="<?php echo $link1['url'] ?>"><?php echo $link1['title'] ?></a>
+                                            </li>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$alan_wfx_challenge_theme_description = get_bloginfo( 'description', 'display' );
-			if ( $alan_wfx_challenge_theme_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $alan_wfx_challenge_theme_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+                                        <?php elseif( get_row_layout() == 'nested' ):                                             
+                                            $label1 = get_sub_field('label'); ?>
+                                            <li class="nav-item">
+                                                <a class="nav-link dropdown-toggle" href="javascript:void(0);"
+                                                    data-toggle="dropdown"><?php echo $label1; ?>
+                                                </a>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'alan-wfx-challenge-theme' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+                                                    <?php if( have_rows('sub_menu_item') ):
+
+                                                        # LEVEL 2 LOOP
+                                                        echo '<ul class="submenu dropdown-menu">';
+                                                        while ( have_rows('sub_menu_item') ) : the_row();
+                                                            if( get_row_layout() == 'direct_link' ):
+                                                                $link1 = get_sub_field('link'); ?>
+
+                                                                    <li class="nav-item">
+                                                                        <a class="nav-link" href="<?php echo $link1['url'] ?>"><?php echo $link1['title'] ?></a>
+                                                                    </li>
+                                                            <?php
+                                                            elseif( get_row_layout() == 'nested' ): 
+                                                                
+                                                                ?>
+                                                                
+                                                                    <li class="nav-item"><a class="nav-link" href="#">
+                                                                        <a class="nav-link" href="#"><?php echo get_sub_field('label'); ?></a>
+                                                                        <ul class="submenu dropdown-menu">
+
+                                                                            <?php while( have_rows('submenu_items') ) : the_row(); 
+                                                                                $link2 = get_sub_field('link');
+                                                                            ?>
+                                                                                
+                                                                            <li class="nav-item">
+                                                                                <a class="nav-link" href="<?php echo $link2['url']; ?>">
+                                                                                    <?php echo $link2['title']; ?>
+                                                                                </a>
+                                                                            </li>
+
+                                                                            <?php endwhile; ?>
+
+                                                                        </ul>
+                                                                    </li>
+                                                            <?php endif;
+                                                        endwhile;
+                                                        echo '</ul>';
+                                                    else :
+                                                    endif; ?>
+                                            </li>
+
+                                        <?php endif;
+
+                                    endwhile;
+                                else :
+                                endif;
+                            ?>
+
+
+                                
+                                
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="header-search">
+                        <a href="javascript:void(0);" class="icon-search"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="searchbar">
+        <div class="container">
+            <div class="searchbar-inner">
+                <input type="text" class="form-control" placeholder="Search here..." />
+                <button type="submit" class="btn search-btn icon-search"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-bottom-header">
+        <div class="call-us">
+            <span>call us </span>
+            <a href="tel:9413557707">941-355-7707</a>
+        </div>
+    </div>
+</header>

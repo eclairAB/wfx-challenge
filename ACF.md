@@ -3,9 +3,7 @@
 ##### Homepage Suspendable Nav Banner
 
 - homepage_suspendable_nav_banner_text
-- homepage_suspendable_nav_link_type
-- homepage_suspendable_nav_page
-- homepage_suspendable_nav_external_link
+- homepage_suspendable_nav_link
 
 ##### Homepage Sticky Nav Menu
 
@@ -16,18 +14,15 @@
 - homepage_sticky_nav_button_2_link
 - homepage_sticky_nav_menu_items
   - direct_link
-    - label
     - link
   - nested
     - label
     - sub_menu_item
       - direct_link
-        - label
         - link
       - nested
         - label
         - submenu_items
-          - label
           - link
 
 ##### Homepage Slider
@@ -36,9 +31,7 @@
   - image
   - emphasis_heading
   - heading
-  - link_type
-  - page_link
-  - external_link
+  - link
 
 ##### Homepage Upper & Lower Section
 
@@ -50,34 +43,26 @@
     - heading_emphasis
     - heading
     - section_content
-    - link_type
-    - page
-    - external_link
+    - link
     - background_image
   - right-side_mini_gallery
 
     - heading_emphasis
     - heading
     - section_content
-    - link_type
-    - page
-    - external_link
+    - link
     - mini_gallery
       - thumbnail
       - caption
       - expanding_overlay_icon
-      - link_type
-      - page
-      - external_link
+      - link
     - background_image
   - side-by-side_images
 
     - heading_emphasis
     - heading
     - section_content
-    - link_type
-    - page
-    - external_link
+    - link
     - background_image
     - left_image
     - top_right_image
@@ -93,9 +78,7 @@
   - thumbnail
   - caption
   - expanding_overlay_icon
-  - link_type
-  - page
-  - external_link
+  - link
 
 ##### Homepage Video Library
 
