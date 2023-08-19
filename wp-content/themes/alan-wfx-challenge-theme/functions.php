@@ -146,6 +146,17 @@ function alan_wfx_challenge_theme_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	wp_enqueue_script('main', get_stylesheet_directory_uri() . '/assets/js/lib.min.js', '', '', true);
+	wp_enqueue_script('main', get_stylesheet_directory_uri() . '/assets/js/custom.js', '', '', true);
+	
+	wp_enqueue_script('main', get_stylesheet_directory_uri() . '/assets/css/bootstrap.min.css', '', '', true);
+	wp_enqueue_script('main', get_stylesheet_directory_uri() . '/assets/css/icomoon.css', '', '', true);
+	wp_enqueue_script('main', get_stylesheet_directory_uri() . '/assets/css/owl.carousel.min.css', '', '', true);
+	wp_enqueue_script('main', get_stylesheet_directory_uri() . '/assets/css/owl.theme.default.min.css', '', '', true);
+	wp_enqueue_script('main', get_stylesheet_directory_uri() . '/assets/css/responsive.css', '', '', true);
+	wp_enqueue_script('main', get_stylesheet_directory_uri() . '/assets/css/style.css', '', '', true);
+
 }
 add_action( 'wp_enqueue_scripts', 'alan_wfx_challenge_theme_scripts' );
 
