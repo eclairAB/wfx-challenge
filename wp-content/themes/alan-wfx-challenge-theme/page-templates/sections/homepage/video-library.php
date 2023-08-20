@@ -13,9 +13,6 @@ function getThumbnail($link) {
 
 ?>
 
-<style>
-
-</style>
 
 <div class="fun-fact line-bg">
     <div class="container">
