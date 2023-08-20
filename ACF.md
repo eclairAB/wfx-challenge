@@ -109,22 +109,23 @@
 
 - homepage_footer_site_logo
 - homepage_footer_social_media_links
-  - soc_med_image
+  - soc_med_class
   - soc_med_link
 - homepage_footer_other_informations
   - contact_information
     - heading
     - address
-    - hyperlink_text
     - hyperlink
     - contact
   - no_link
     - heading
     - items
+      - item
   - awards__certifications
     - heading
     - images
+      - image
 - homepage_footer_lower_links
-  - label
   - link
+- homepage_footer_copyright
 - homepage_footer_auto-scroll_text

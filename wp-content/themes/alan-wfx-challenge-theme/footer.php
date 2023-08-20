@@ -17,59 +17,90 @@
             <div class="col-lg-3 col-md-6">
                 <div class="footer-logo">
                     <a href="#">
-                        <img src="assets/images/logo.png" alt="University Animal Clinic" />
+                        <img src="<?php echo get_field('homepage_footer_site_logo'); ?>" alt="University Animal Clinic" />
                     </a>
                 </div>
                 <div class="footer-social">
                     <ul>
-                        <li>
-                            <a href="#" class="icon-facebook"></a>
-                        </li>
-                        <li>
-                            <a href="#" class="icon-instagram"></a>
-                        </li>
-                        <li>
-                            <a href="#" class="icon-youtube"></a>
-                        </li>
-                        <li>
-                            <a href="#" class="icon-tiktoc"></a>
-                        </li>
+                        <?php
+                        if( have_rows('homepage_footer_social_media_links') ):
+                            while ( have_rows('homepage_footer_social_media_links') ) : the_row(); ?>
+
+                                <li>
+                                    <a href="<?php echo get_sub_field('soc_med_link'); ?>" class="<?php echo get_sub_field('soc_med_class'); ?>"></a>
+                                </li>
+
+                            <?php
+                            endwhile;
+                        endif; ?>
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="footer-contact">
-                    <h4>CONTACT INFORMATION</h4>
-                    <p>
-                        8239 Cooper Creek Blvd <br /> Bradenton, FL34201 <br />
-                        <a class="learn-more" href="#">Get Directions <span class="icon-arrow-right"></span></a>
-                    </p>
-                    <p>
-                        Phone: <a class="color-body" href="tel:9413557707">941-355-7707</a>
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="footer-contact">
-                    <h4>HOURS OF OPERATION</h4>
-                    <p>
-                        Monday - Friday: 8:30AM - 6PM <br /> Saturday: 8AM - 1PM
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="footer-contact">
-                    <h4>AWARDS & ASSOCIATIONS</h4>
-                    <ul class="award-logos">
-                        <li>
-                            <img src="assets/images/award-logo1.jpg" alt="Award" />
-                        </li>
-                        <li>
-                            <img src="assets/images/award-logo2.jpg" alt="Award" />
-                        </li>
-                    </ul>
-                </div>
-            </div>
+
+            <?php
+            if( have_rows('homepage_footer_other_informations') ):
+                while ( have_rows('homepage_footer_other_informations') ) : the_row(); 
+                    if( get_row_layout() == 'contact_information' ):?>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-contact">
+                                <h4><?php echo get_sub_field('heading'); ?></h4>
+                                <p>
+                                    <?php echo get_sub_field('address'); ?><br>
+                                    <a class="learn-more" href="<?php echo get_sub_field('hyperlink')['url']; ?>">
+                                        <?php echo get_sub_field('hyperlink')['title']; ?>
+                                        <span class="icon-arrow-right"></span>
+                                    </a>
+                                </p>
+                                <p>
+                                    Phone: <a class="color-body" href="tel:<?php echo get_sub_field('contact'); ?>"><?php echo get_sub_field('contact'); ?></a>
+                                </p>
+                            </div>
+                        </div>
+
+                    <? elseif( get_row_layout() == 'no_link'): ?>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-contact">
+                                <h4><?php echo get_sub_field('heading'); ?></h4>
+                                <p>
+                                    <?php
+                                    if( have_rows('items') ):
+                                        while ( have_rows('items') ) : the_row();
+                                            echo get_sub_field('item') . '<br>';
+                                    endwhile;
+                                    endif;        
+                                    ?>
+                                </p>
+                            </div>
+                        </div>
+
+                    <? elseif( get_row_layout() == 'awards__certifications'): ?>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-contact">
+                                <h4>AWARDS & ASSOCIATIONS</h4>
+                                <ul class="award-logos">
+                                    <?php
+                                    if( have_rows('images') ):
+                                        while ( have_rows('images') ) : the_row();
+                                            echo '
+                                            <li>
+                                                <img
+                                                    src="' . get_sub_field('image')['url'] . '"
+                                                    alt="' . get_sub_field('image')['alt'] . '"
+                                                />
+                                            </li>';
+                                    endwhile;
+                                    endif;        
+                                    ?>
+                                </ul>
+                            </div>
+                        </div>
+
+                    <?php
+                    endif;
+                endwhile;
+            endif; ?>
         </div>
     </div>
     <div class="footer-bottom">
@@ -77,22 +108,27 @@
             <div class="bottom-wrap">
                 <div class="footer-left">
                     <ul class="footer-menu">
-                        <li>
-                            <a href="#">Site Credits</a>
-                        </li>
-                        <li>
-                            <a href="#">Sitemap</a>
-                        </li>
-                        <li>
-                            <a href="#">Privacy Policy</a>
-                        </li>
+
+                        <?php
+                        if( have_rows('homepage_footer_lower_links') ):
+                            while ( have_rows('homepage_footer_lower_links') ) : the_row();
+                                echo '
+                                <li>
+                                    <a href="' . get_sub_field('link')['url'] . '">
+                                        '. get_sub_field('link')['title'] .'
+                                    </a>
+                                </li>';
+
+                            endwhile;
+                        endif; ?>
+
                     </ul>
                     <div class="copyright">
-                        Copyright © 2020. All Rights Reserved
+                        <?php echo get_field('homepage_footer_copyright') ?>
                     </div>
                 </div>
                 <div class="back-top">
-                    <a class="learn-more yellow-link" href="#">Back to Top <span class="icon-arrow-up"></span></a>
+                    <a class="learn-more yellow-link" href="#"><?php echo get_field('homepage_footer_auto-scroll_text') ?> <span class="icon-arrow-up"></span></a>
                 </div>
             </div>
         </div>
