@@ -1,10 +1,10 @@
 @media only screen and (max-width: 1799.98px) {
-    .exotic-care { background-size: 420px auto; background-position: left -50px bottom; }
+    .exotic-care { background-size: 420px auto !important; background-position: left -50px bottom !important; }
 }
 @media only screen and (max-width: 1599.98px) {
     .team-banner .banner-image { left: -100px; }
     .home-team .team-wrap { width: 80%; }
-    .exotic-care { background-size: 380px auto; background-position: left -100px bottom; }
+    .exotic-care { background-size: 380px auto !important; background-position: left -100px bottom !important; }
     .exotic-care .exotic-wrap { width: 80%; }
     .exotic-images { padding-left: 20px; padding-right: 20px; }
     .exotic-images .exotic-image2 { right: -40px; }
@@ -21,7 +21,7 @@
     .home-services { padding-bottom: 60px; }
     .team-box .team-title { font-size: 44px; }
     .exotic-images .team-box { padding: 20px; } 
-    .exotic-care { background-size: 380px auto; background-position: left -130px bottom; }
+    .exotic-care { background-size: 380px auto !important; background-position: left -130px bottom !important; }
 }
 @media only screen and (max-width: 1199.98px) {
     h1 { font-size: 38px; margin-bottom: 20px; }
@@ -52,7 +52,7 @@
     .team-banner { min-height: 340px; }
     .exotic-images .team-box { padding: 16px; }
     .exotic-images .team-box .team-title { font-size: 56px; margin: 6px 0 5px 0; }
-    .exotic-care { background-size: 430px auto; background-position: left -230px bottom; padding-top: 60px; padding-bottom: 60px; }
+    .exotic-care { background-size: 430px auto !important; background-position: left -230px bottom !important; padding-top: 60px !important; padding-bottom: 60px !important; }
     .fun-fact-owl { max-width: 740px; }
     .fun-fact-owl .owl-dots { right: -240px; width: 230px; }
     .fun-fact-owl .owl-nav .owl-prev { right: -150px; }
@@ -205,7 +205,7 @@
     .team-wrap > .row { padding-left: 20px; padding-right: 20px; }
     .team-box { margin-bottom: 20px; }
     .exotic-care .exotic-wrap { width: 100%; }
-    .exotic-care { background-size: 240px auto; background-position: center bottom; padding-bottom: 350px; padding-top: 50px; }
+    .exotic-care { background-size: 240px auto !important; background-position: center bottom !important; padding-bottom: 350px !important; padding-top: 50px !important; }
 
     .home-team h1, .home-team h2 { margin-bottom: 40px; }
     .fun-fact { padding-top: 50px; }

@@ -22,6 +22,10 @@
             get_header();
             require 'sections/homepage/slider.php';
             require 'sections/homepage/upper-content/index.php';
+            require 'sections/homepage/team-section.php';
+            require 'sections/homepage/lower-content/index.php';
+            require 'sections/homepage/video-library.php';
+            require 'sections/homepage/testi-blog.php';
             // the_content();
 
 

@@ -536,9 +536,9 @@ a {
 	color: #4169e1;
 }
 
-a:visited {
+/* a:visited {
 	color: #800080;
-}
+} */
 
 a:hover,
 a:focus,
@@ -966,4 +966,8 @@ textarea {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 1.5em;
+}
+
+body {
+	overflow-y: clip;
 }
