@@ -82,9 +82,10 @@
 ##### Homepage Video Library
 
 - homepage_video_library_ribbon_heading
-- homepage_video_library_link
 - homepage_video_library_videos
   - video_link
+  - video_description
+  - library_link
 
 ##### Homepage Testimonial
 
