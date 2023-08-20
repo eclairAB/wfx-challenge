@@ -58,7 +58,7 @@
                             </div>
                         </div>
 
-                    <? elseif( get_row_layout() == 'no_link'): ?>
+                    <?php elseif( get_row_layout() == 'no_link'): ?>
                         <div class="col-lg-3 col-md-6">
                             <div class="footer-contact">
                                 <h4><?php echo get_sub_field('heading'); ?></h4>
@@ -74,7 +74,7 @@
                             </div>
                         </div>
 
-                    <? elseif( get_row_layout() == 'awards__certifications'): ?>
+                    <?php elseif( get_row_layout() == 'awards__certifications'): ?>
 
                         <div class="col-lg-3 col-md-6">
                             <div class="footer-contact">
