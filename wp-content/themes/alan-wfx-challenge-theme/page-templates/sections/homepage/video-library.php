@@ -40,7 +40,7 @@ function getThumbnail($link) {
                         </div>
                     </div>
 
-                <? endwhile; 
+                <?php endwhile; 
             endif; ?>
         </div>
     </div>
